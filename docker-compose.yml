@@ -13,6 +13,7 @@ services:
     depends_on:
       - postgres
     environment:
+      - DB_TYPE=postgres
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_USERNAME=ecommerce_user
@@ -31,7 +32,6 @@ services:
       - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./docker/ecommerce_dump.sql:/docker-entrypoint-initdb.d/ecommerce_dump.sql
 
 volumes:
   postgres_data:
